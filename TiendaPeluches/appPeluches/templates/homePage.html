@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="container-fluid p-0 vh-100">
+    <div class="row g-0 h-100">
+        <!-- Primera Imagen -->
+        <div class="col-6 col-md-6 col-lg-3 position-relative " >
+            <a href="{% url 'productos' %}">
+            <div class="image-container">
+                <img src="{% static 'imgsPortada/peluche1.jpg' %}" class="img-fluid h-100 w-100 object-fit-cover img-hover" style="max-height: 600px;" alt="Foto 1">
+                <div class="text-overlay">
+                    <p class="text-center">Peluches</p>
+                </div>
+            </div>
+        </a>
+        </div>
+        <!-- Segunda Imagen -->
+        <div class="col-6 col-md-6 col-lg-3 position-relative">
+            <a href="{% url 'productos' %}">
+            <div class="image-container">
+                <img src="{% static 'imgsPortada/garfield.jpg' %}" class="img-fluid h-100 w-100 object-fit-cover img-hover"style="max-height: 600px;" alt="Foto 2">
+                <div class="text-overlay">
+                    <p class="text-center">De tdodos</p>
+                </div>
+            </div>
+        </a>
+        </div>
+        <!-- Tercera Imagen -->
+        <div class="col-6 col-md-6 col-lg-3 position-relative">
+            <a href="{% url 'productos' %}">
+            <div class="image-container">
+                <img src="{% static 'imgsPortada/pelucheG.jpg' %}" class="img-fluid h-100 w-100 object-fit-cover img-hover"style="max-height: 600px;" alt="Foto 3">
+                <div class="text-overlay">
+                    <p class="text-center">Tipos</p>
+                </div>
+            </div>
+        </a>
+        </div>
+        <!-- Cuarta Imagen -->
+        <div class="col-6 col-md-6 col-lg-3 position-relative">
+            <a href="{% url 'productos' %}">
+            <div class="image-container">
+                <img src="{% static 'imgsPortada/peluche4.jpg' %}" class="img-fluid h-100 w-100 object-fit-cover img-hover"style="max-height: 600px;"    alt="Foto 4">
+                <div class="text-overlay">
+                    <p class="text-center">y colores</p>
+                </div>
+            </div>
+        </a>
+        </div>
+    </div>
+</div>
+<h3 class="text-center margen" style="margin-top: -30px ;">CATEGORIAS</h3>
+<div class="container mt-2">
+    <div class=" d-flex justify-content-center flex-wrap g-3 COLUMN">
+        {% for categoria in categorias %}
+        <a href="{% url 'categoria_detalle' categoria.slug %}" class=" p-3 rounded text-dark bg-white mx-2 text-decoration-none">
+            {{ categoria.nombre }}
+        </a>
+       
+        {% endfor %}
+    </div>
+
+    <!-- Sección de productos -->
+    <div class="row g-4 mt-4">
+        <h3 class="text-center">PRODUCTOS MÁS VENDIDOS</h3>
+        {% for producto in productos %}
+        <div class="col-6 col-sm-6 col-md-4 col-lg-3 d-flex " >
+            <a href="{% url 'producto_detalle' producto.slug %}" >
+            <div class="p-4" style="width: 33rem;">
+                {% if producto.imagenEXTRA %}
+                <img src="{{ producto.imagenEXTRA.url }}" class="img-fluid imgSM  img-scale" alt="" style="height: 300px ; width: 300px;">
+                {% else %}
+                <img src="{{ producto.imagen.url }}" class="img-fluid imgSM  img-scale " alt="{{ producto.descripcion }}" style="height: 300px ; width: 300px;" >
+                {% endif %}
+                <p class="text-uppercase  mt-3" style="font-size: 12px;"><strong>{{ producto.nombre }}</strong></p>
+                <p style="font-size: 13px; margin-top: -20px;">{{ producto.precio }} €</p>
+                <div >
+                </a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+{% endblock %}

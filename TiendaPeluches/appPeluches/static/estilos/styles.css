@@ -1,0 +1,232 @@
+* {
+    font-family: 'Helvetica', sans-serif !important;
+    
+    
+
+}
+
+.form-control:focus {
+    outline: none !important; /* Quita el contorno azul */
+    box-shadow: none !important; /* Quita cualquier sombra */
+}
+
+a {
+    text-decoration: none !important; /* Elimina cualquier decoración como subrayado */
+    color: inherit !important; /* Opcional: hace que el enlace tenga el mismo color que el texto circundante */
+}
+
+a:hover, a:focus {
+    text-decoration: none !important; /* Asegura que no haya decoraciones en hover o focus */
+}
+
+.hov:hover{
+    opacity: 1 !important;
+    
+}
+
+.hov {
+    color: black !important;
+    opacity: 0.5;
+}
+
+.titulosP {
+    font-size: 13px;
+}
+
+.image-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.text-overlay {
+    position: absolute;
+    bottom: 0; /* Coloca el texto en la parte inferior */
+    width: 100%;
+    color: white; /* Color del texto */
+    padding: 10px;
+}
+
+.text-overlay p {
+    margin: 0;
+    font-size: 1.2em;
+    text-align: center;
+   
+}
+
+input {
+    font-size: 14px !important;
+    height: 45px !important;
+}
+
+input:focus, textarea:focus, select:focus {
+    border: 2px solid black !important; /* Borde negro cuando está en foco */
+    background-color: white !important; /* Fondo blanco cuando está en foco */
+    outline: none !important; /* Elimina el contorno predeterminado del navegador */
+}
+
+.img-hover {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.img-hover:hover {
+    opacity: 0.5;
+ 
+    
+}
+
+.img-scale {
+    transition: transform 0.4s ease; 
+}
+
+.img-scale:hover {
+    transform: scale(1.2); /* Usa transform para aplicar scale */
+    
+}
+
+.modelo-img{
+    width: 8rem !important;
+    height:8rem !important;
+    margin-top: 30px !important;
+}
+
+.img-carousel {
+    height: 560px !important; /* Altura por defecto para pantallas grandes */
+    
+}
+.modelos {
+    
+    font-size: 15px;
+}
+
+.formForma{
+    border: solid 1px black !important;
+    border-radius: 0px !important;
+}
+
+
+
+.formForma:focus {
+    outline: none !important; /* Elimina el aura azul */
+    box-shadow: none !important; /* También elimina el sombreado que genera el resplandor */
+}
+/* Estilo personalizado para los radio buttons en forma de círculo */
+.circulo {
+    appearance: none !important;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    width: 20px !important;
+    height: 20px !important;
+    border-radius: 50% !important;
+    border: 2px solid #007bff !important;
+    background-color: transparent !important;
+    transition: all 0.3s ease !important;
+    position: relative !important;
+    cursor: pointer !important;
+    outline: none !important;
+}
+
+/* Estilo cuando el radio button está seleccionado */
+.circulo:checked {
+    background-color: #007bff !important;
+    border-color: #007bff !important;
+}
+
+/* Círculo interno blanco cuando el radio button está seleccionado */
+.circulo:checked::before {
+    content: '' !important;
+    display: block !important;
+    width: 12px !important;
+    height: 12px !important;
+    background-color: #fff !important;
+    border-radius: 50% !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+}
+
+/* Hover para cambiar el color del borde */
+.circulo:hover {
+    border-color: #0056b3 !important;
+}
+
+.custom-carousel-control-prev, .custom-carousel-control-next {
+    width: 5% !important; /* Reduce el área clicable */
+    background-color: pink !important; /* Fondo oscuro */
+    display: flex !important;
+    flex-direction: column;
+    align-items: center !important;
+    justify-content: center !important;
+    height: 30px;
+    opacity: 0.5 !important;
+    margin-top: 50% !important;
+    
+}
+
+.custom-carousel-control-prev-icon, .custom-carousel-control-next-icon {
+    background-color: rgba(0, 0, 0, 1) !important; /* Fondo oscuro semitransparente */
+    border-radius: 50% !important; /* Hace las flechas más pequeñas y redondas */
+    padding: 10px !important; /* Aumenta el tamaño del ícono dentro del área */
+    color: #000 !important; /* Cambia el color del ícono a negro */
+    font-size: 2rem !important; /* Ajusta el tamaño del ícono si es necesario */
+}
+
+.selected-category{
+    color: white !important;    
+    background-color: pink !important;
+}
+
+.custom-carousel-control-prev-icon {
+    border: 1px solid #000 !important; /* Asegura que el borde también sea negro */
+}
+
+.custom-carousel-control-next-icon {
+    border: 1px solid #000 !important; /* Asegura que el borde también sea negro */
+}
+
+
+/* Media query para pantallas pequeñas */
+@media (max-width: 768px) {
+    .img-carousel {
+        height: 330px !important;
+       
+        
+    }
+
+    .imgSM{
+        height: 125px !important;
+        width: 200px !important;
+        
+    }
+    .margen{
+        margin-top: 40px !important;
+    }
+
+    .MT{
+        margin-top: 30px !important;
+    }
+    .ML{
+        margin-left: -12px !important;
+    }
+    .MB{
+        margin-bottom: 10px !important;
+
+    }
+    .M{
+        margin-top: -30px !important;
+    }
+
+    .COLUMN{
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: flex-start !important;
+        font-size: 10px !important;
+        margin-bottom: -40px !important;
+        text-align: justify !important;
+        
+    }
+    .MTT {
+        margin-top: 23px !important;
+    }
+}

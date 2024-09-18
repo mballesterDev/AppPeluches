@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}Productos{% endblock %}
+
+{% block content %}
+<div class="container">
+<h3 class="text-center mb-3 mt-4">CATEGORIAS</h3>
+<div class="mt-2 d-flex flex-wrap justify-content-center g-3 COLUMN">
+    
+    {% for cat in categorias %}
+    <a href="{% url 'categoria_detalle' cat.slug %}" 
+    class="p-3 rounded mx-2 text-decoration-none 
+            {% if categoria.slug == cat.slug %} selected-category{% endif %}">
+        {{ cat.nombre }}
+    </a>
+    {% endfor %}
+</div>
+    <!-- Sección de productos -->
+    <div class="row g-4 mt-4">
+        {% for producto in productos %}
+        <div class="col-6 col-sm-6 col-md-4 col-lg-3 d-flex " >
+            <a href="{% url 'producto_detalle' producto.slug %}" >
+            <div class="p-4" style="width: 33rem;">
+                {% if producto.imagenEXTRA %}
+                <img src="{{ producto.imagenEXTRA.url }}" class="img-fluid imgSM img-scale" alt="" style="height: 300px ; width: 300px;">
+                {% else %}
+                <img src="{{ producto.imagen.url }}" class="img-fluid imgSM i img-scale" alt="{{ producto.descripcion }}" style="height: 300px ; width: 300px;" >
+                {% endif %}
+                <p class="text-uppercase  mt-3" style="font-size: 12px;"><strong>{{ producto.nombre }}</strong></p>
+                <p style="font-size: 13px; margin-top: -20px;">{{ producto.precio }} €</p>
+                <div >
+                </a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

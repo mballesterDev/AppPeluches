@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Confirmación de tu pedido</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 90%;
+            max-width: 600px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #4CAF50;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        p {
+            font-size: 16px;
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        li {
+            padding: 8px 0;
+            border-bottom: 1px solid #ddd;
+        }
+        .total {
+            font-weight: bold;
+            font-size: 18px;
+            color: #333;
+        }
+        .footer {
+            font-size: 14px;
+            color: #666;
+            margin-top: 20px;
+            border-top: 1px solid #ddd;
+            padding-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Gracias por tu compra</h1>
+        <p>Hola {{ pedido.detalles.first.nombreUsario }},</p>
+        <p>Tu pedido con el ID {{ pedido.id }} ha sido recibido y está en proceso.</p>
+
+        <p>Detalles del pedido:</p>
+        <ul>
+            {% for detalle in pedido.detalles.all %}
+                <li>{{ detalle.cantidad }} x {{ detalle.producto.nombre }} - €{{ detalle.precio }}</li>
+            {% endfor %}
+        </ul>
+        
+        <p class="total">Total: €{{ pedido.total }}</p>
+        <p>Nos pondremos en contacto contigo cuando tu pedido esté listo para el envío.</p>
+
+        <div class="footer">
+            <p>Si tienes alguna pregunta, no dudes en contactarnos.</p>
+            <p>Gracias por comprar con nosotros.</p>
+        </div>
+    </div>
+</body>
+</html>

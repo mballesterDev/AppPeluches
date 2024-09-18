@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}Payment Success{% endblock %}
+
+{% block content %}
+
+<h1 class="text-center mt-5">PAGO EXITOSO</h1>
+<p class="text-center mt-4 mb-4">
+    En su correo le llegará la factura del pedido, próximamente le enviaremos un correo con el seguimiento<br>
+    del pedido (revise la carpeta de spam si no lo encuentra o contáctenos por redes sociales o vía mail).
+</p>
+<center><a class="btn btn-primary text-light" href="{% url 'home' %}">VOLVER AL INICIO</a></center>
+
+{% endblock %}
